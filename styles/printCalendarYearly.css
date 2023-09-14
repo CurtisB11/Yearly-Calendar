@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+
+@media print {
+	html, body {
+		margin-top: -10px;    
+	}
+	
+	#titleHolder {
+		height: 100px;
+		line-height: 100px;
+	}
+	
+	.pageContentsHolder {
+		-webkit-print-color-adjust: exact;
+	}
+	
+	#navigationButtons, .modal {
+		visibility: hidden;
+	}
+
+	#legend {
+		visibility: hidden;
+		display: none !important;
+	}
+
+	#viewedYear {
+		top: -65px;
+		visibility: visible;
+	}
+	
+	#calendarPageContentsHolder {
+		height: 1315px;
+	}
+	
+	#calendar {
+		top: 70px;
+	}
+	
+	.month {
+		margin: 10px 15px;
+		height: 255px;
+	}
+
+	h3 {
+		padding: 15px 0 5px 20px;
+	}
+	
+	.eventMoonPhase {
+		background-color: white;
+	}
+	
+	.birthdayOccasion {
+		background-color: white;
+	}
+	
+	.occasion {
+		background-color: white;
+	}
+	
+	.dateHoliday {
+		background-color: white;
+	}
+	
+	.todaysDate {
+		background-color: white;
+		color: #333;
+		font-size: 14px;
+		font-weight: normal;
+	}
+	
+	.weekend {
+		background-color: #f5ffff;
+	}
+}
+
+@media print :first {
+	@page {
+		size: letter portrait;
+	}
+}
+

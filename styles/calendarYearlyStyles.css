@@ -1,0 +1,562 @@
+
+html {
+/*	scrollbar-gutter: stable both-edges; */
+	scrollbar-gutter: stable;
+}
+
+html, body {
+/*	background: #223230; */
+	font-family: sans-serif;
+}
+
+#printButton {
+	margin-right: 30px;
+}
+
+input {
+	height:30px;
+	vertical-align: middle;
+	margin-right: 7px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { /* Target Safari and Chrome */
+	input {
+		-webkit-appearance: button;
+		height: 25px;
+		line-height:14px;
+	}
+}
+
+#yearTextBox {
+	height: 22px;
+	width:33px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { /* Target Safari and Chrome */
+	#yearTextBox {
+		position: relative;
+		top: -1px;
+		-webkit-appearance: none;
+		height: 18px;
+	}
+}
+
+@-moz-document url-prefix() { /* Target Firefox Only */
+	#yearTextBox {
+		height: 22px;
+		line-height: 22px;
+	}
+}
+
+#buttonsHolder {
+	margin-left: 65px;
+}
+
+#leapYearInToolbar { /* For the right side text that says Leap Year in the toolbar. Added February 22nd, 2023. */
+	position: relative;
+	font-size: 14px;
+	padding-right: 25px;
+	bottom: 3px;
+}
+
+#calendarPageContentsHolder {
+	height: 1660px;
+	width: 958px;
+/*	margin-left: 32px; */
+	padding-left: 32px;
+}
+
+#titleHolder {
+	position: absolute;
+	top: 0px;
+	height: 100px;
+	width: 100%;
+	margin-left: -32px;
+/*	padding-left: 25px; */
+	text-align: center;
+	line-height: 100px;
+	font-size: 22px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+#viewedYear {
+	position: absolute;
+	top: 18px;
+/*	left: 870px; */
+	right: 60px;
+	font-size: 20px;
+/*	font-family: Verdana, Arial, Helvetica, sans-serif; */
+}
+/*
+#navigationButtons {
+	position: fixed;
+	top: 85px;
+	height: 40px;
+	width: 990px;
+	padding-top: 15px;
+	margin-left: -32px;
+	display: block;
+	transition: top 0.6s;
+	background: #223230;
+*//*	background: yellow; */
+/*	z-index: 50;
+}
+*/
+
+#navigationButtons {
+	position: fixed;
+	top: 85px;
+	height: 40px;
+	width: 925px;
+	padding-top: 15px;
+	padding-left: 65px;
+	margin-left: -32px;
+	display: block;
+	transition: top 0.6s;
+	background: #223230;
+/*	background: yellow; */
+	z-index: 50;
+}
+
+#advanceOneYear {
+	margin-right: 30px;
+}
+
+#calendar {
+	position: absolute;
+	top: 130px;
+}
+
+.month {
+	width: 250px;
+	padding: 15px;
+	background: #fff;
+	position: relative;
+/*	overflow: hidden; */
+	float: left;
+	margin: 15px;
+	height: 275px;
+	border-radius: 20px; /* Added by Curtis on 8th March 2023 to create rounded corners on month boxes. */
+}
+
+ h3 {
+	margin: -18px -15px 13px -15px; /* Adjust height space ABOVE days of week name abbreviations row here by changing margin bottom. (Third setting) */
+	padding: 30px 0 5px 20px;
+	background: #435f5a;
+	color: white;
+	font-size: 16px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+
+h4{
+	margin-top: 0px;
+}
+
+/* .day, .dow, .dummy-day { */
+.weekDay, .weekEnd, .dow, .dummy-day {
+	display: inline-block;
+	width: 12.7864%;
+	float: left;
+	text-align: center;
+	margin-right: 0.75%;
+	margin-left: 0.75%;
+}
+
+.dow {
+	font-weight: bold;
+	margin-bottom: 6px; /* This setting controls height space BELOW row for days of week name abbreviations.  */
+	color: black;
+	font-size: 14px;
+}
+
+/* .day { */
+.weekDay, .weekEnd {
+	color: #333;
+	font-size: 14px;
+/*	cursor: pointer; */ /* This changes cursor to a hand (pointer) for all weekdays, and weekend days */
+/*	box-shadow: inset 0 0 0 1px #eee; */ /* original colour. */
+	box-shadow: inset 0 0 0 1px #bbb;
+	background: #fff;
+}
+/*
+.day:hover {
+	background: #a6f4ea;
+}
+*/
+/* .day.weekend { */
+.weekEnd {
+	background: #f5ffff;
+	color: #808080;
+}
+/*
+.day.weekend:hover {
+	background: #87c6be;
+}
+*/
+.eventMoonPhase {
+	background: #a5cff7;
+}
+
+.eventMoonPhase:hover {
+	background: #0083ff;
+	font-weight: bold;
+	cursor: pointer;
+	color: #ffffff;
+}
+
+.birthdayOccasion {
+/*	color: #000;
+	font-weight: bold; */
+	background: #e8e1c6;
+}
+
+.birthdayOccasion:hover {
+	background: #e8b800;
+	font-weight: bold;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.occasion {
+/*	color: #000; */
+/*	font-weight: bold; */
+	background: #b3ddd8;
+}
+
+.occasion:hover {
+	background: #435f5a;
+	cursor: pointer;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.dateHoliday {
+	color: magenta;
+	font-weight: bold;
+	background: #b3ddd8;
+}
+
+.dateHoliday:hover {
+	background: #435f5a;
+	cursor: pointer;
+	color: #ffd0e8;
+}
+
+.todaysDate {
+	background: pink;
+	font-weight: bold;
+	color: red;
+}
+
+.todaysDate:hover {
+	background: maroon;
+	color: white;
+	cursor: pointer;
+}
+
+.dateTodayHoliday {
+	color: magenta;
+	font-weight: bold;
+	background: pink;
+}
+
+.dateTodayHoliday:hover {
+	background: maroon;
+	color: #ffd0e8;
+	cursor: pointer;
+}
+
+/*.day, .dummy-day { */
+.weekDay, .weekEnd, .dummy-day {
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 1.5%;
+	border-radius: 6px; /* Added by Curtis on 30th August 2021 to create rounded corners on date boxes. */
+}
+
+.dummy-day {
+/*	background: #f5f5f5; /* Original styles. */
+/*	color: #aaa;
+	font-size: 12px;
+	box-shadow: inset 0 0 0 1px #eaeaea;
+*/
+/*	background-color: #eee;
+	font-size: 12px;
+	color: #999999;
+	box-shadow: inset 0 0 0 1px #ddd;
+*/	
+	background-color: #e0e0e0; /* These commented out styles below are taken from the monthly calendar, but appear a bit too dark on this one. */
+	font-size: 12px;
+	color: #999999;
+	box-shadow: inset 0 0 0 1px #bbb;
+}
+
+	.modal {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+		backdrop-filter: blur(5px);
+        visibility: hidden;
+		transform: scale(1.7);
+        transition: visibility 0s linear 0.75s, opacity 0.75s 0s, transform 0.75s;
+	/*	transform: scale(1.1);
+        transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s; */
+		z-index: 100; /* This keeps modal above auto-scrolling navigation bar */
+    }
+	
+	.show-modal {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.0);
+		transition: visibility 0s linear 0s, opacity 0.75s 0s, transform 0.75s;
+	/*	transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.5s; */
+    }
+
+	.modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+		color: black;
+        background-color: white;
+     	background-repeat: no-repeat;
+		background-position: center;
+	/*	padding: 32px 32px 24px; */
+	/*	padding: 28px 32px; */
+        width: 590px;
+		height: 434px;
+        border-radius: 16px;
+		border: 2px solid darkgray;
+		box-shadow: 3px 7px 9px 5px rgba(0,0,0,0.5);
+    }
+/*	
+	.modal-content .bigTodayDateNumber {
+		position: absolute;
+		index: 4;
+		top: 110px;
+		right: 140px;
+		font-size: 72px;
+		color: red;
+	}
+*/	
+	#sideGraphicContainer {
+		position: relative;
+		top: 80px;
+		left: 205px;
+		width: 300px;
+		height: 250px;
+	/*	border: 1px solid black; */
+	}
+	
+/*	#balloonsGraphic {
+		position: relative;
+		top: 20px;
+		left: 80px;
+	} */
+	
+	
+	.dateClicked {
+		position: absolute;
+		top: 35px; /* 60px */
+		left: 90px; /* 120px */
+	}
+	
+	.wordTodayMemo {
+		position: absolute;
+		top: 108px;
+		left: 108px;
+		font-size: 30px;
+		font-weight: bold;
+		color: red;
+	}
+	
+	.bigDateNumber {
+		position: absolute;
+		color: #333;
+		top: 82px; /* 110px */
+		right: 108px; /* 140px */
+		font-size: 72px;
+	}
+	
+	#theDayCounter {
+		position: absolute;
+		index: 10;
+		bottom: 90px;
+		left: 90px;
+		font-size: 16px;
+		color: red;
+	}
+	
+	.numbers {
+		line-height: 30px;
+		font-weight: bold;
+	}
+	
+	#leapYearModalSentence {
+		font-size: 14px;
+	}
+	
+	#leapYearModalWords {
+		font-weight: bold;
+	}
+	
+	.nameOfMoonPhase {
+		position: absolute;
+		index: 10;
+		bottom: 90px; /* 115px */
+		left: 90px;
+		color: #000000;
+		font-size: 20px;
+	}
+	
+	.moonPhaseTime {
+		font-size: 16px;
+	}
+	
+	.moonPhaseTimeZone {
+		font-size: 14px;
+	}
+	
+	#happyBirthday {
+		color: blue;
+		font-weight: bold;
+	}
+	
+	.dateInfoHolder {
+		position: absolute;
+	/*	bottom: 110px; */
+		bottom: 90px; /* 120px */
+		left: 90px;
+		font-size: 16px;
+		line-height: 25px;
+	}
+		
+	.close-X {
+		float: right;
+		margin-right: 20px;
+		margin-top: 20px;
+		cursor: pointer;
+		color: #696969;
+		font-size: 60px;
+		transition: color 0.7s ease;
+	}
+	
+	.close-X:hover {
+		color: #ffffff;
+	}
+	
+	.htmlCloseButton {
+		position: absolute;
+		left: 515px; /* 575px */
+		bottom: 25px; /* 40px */
+		background-color: lightgray;
+		font-size: 12px;
+		padding: 6px 12px;
+		border: 1px solid darkgray;
+		border-radius: 4px;
+		float: right;
+		transition: background-color 0.5s ease;
+	}
+	
+	.htmlCloseButton:hover {
+		background-color: darkgray;
+	}
+	
+	/* ------------------------------ Legend styles begin here ----------------------------------- */
+	
+	#legend {	
+		position: absolute;
+		top: 1478px;
+		width: 870px;
+		padding: 15px;
+		background: #ffffff;
+/*		overflow: hidden; */
+		float: left;
+		margin: 15px;
+		height: 90px;
+		border-radius: 20px; /* Added by Curtis on 8th March 2023 to create rounded corners on the legend box. */
+	}
+	
+	#colourLegendTitle {
+		margin: -18px -15px 13px -15px;
+		padding: 30px 0 5px 20px;
+		background: #435f5a;
+		color: white;
+		font-size: 16px;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+	}
+	
+	.legendDateBox {
+		width: 30px;
+		height: 30px;
+		margin-right: 5px;
+	}
+	
+	#TodaysDateIdentifier {
+		color: red;
+		font-size: 14px;
+	}
+	
+	#OccasionIdentifier, #BirthdayIdentifer, #MoonPhaseIdentifer {
+		color: black;
+		font-size: 14px;
+	}
+	
+	#HolidayDateIdentifier {
+		color: magenta;
+		font-size: 14px;
+	}
+	
+	#legendBlockContainer1 {
+		position: absolute;
+		top: 70px;
+		left: 40px;
+		width: 140px;
+		height: 30px;
+		line-height: 30px;
+	}
+	
+	#legendBlockContainer2 {
+		position: absolute;
+		top: 70px;
+		left: 210px;
+		width: 140px;
+		height: 30px;
+		line-height: 30px;
+	}
+	
+	#legendBlockContainer3 {
+		position: absolute;
+		top: 70px;
+		left: 380px;
+		width: 140px;
+		height: 30px;
+		line-height: 30px;
+	}
+	
+	#legendBlockContainer4 {
+		position: absolute;
+		top: 70px;
+		left: 550px;
+		width: 140px;
+		height: 30px;
+		line-height: 30px;
+	}
+	
+	#legendBlockContainer5 {
+		position: absolute;
+		top: 70px;
+		left: 720px;
+		width: 140px;
+		height: 30px;
+		line-height: 30px;
+	}
+	
+
+
